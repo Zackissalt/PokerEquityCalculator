@@ -1,0 +1,782 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:baselineAligned="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player03"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/Player3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/player_3"
+                    app:layout_constraintBottom_toTopOf="@+id/Player3Card1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player3Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player3Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player3Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 3 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player3"
+                    app:layout_constraintStart_toStartOf="@+id/Player3"
+                    app:layout_constraintTop_toBottomOf="@+id/Player3Card1" />
+
+                <ImageButton
+                    android:id="@+id/Player3Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player3Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/Player1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 1"
+                    app:layout_constraintBottom_toTopOf="@+id/Player1Card1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player1Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player1Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player1Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 1 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player1"
+                    app:layout_constraintStart_toStartOf="@+id/Player1"
+                    app:layout_constraintTop_toBottomOf="@+id/Player1Card1" />
+
+                <ImageButton
+                    android:id="@+id/Player1Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player1Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player02"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/Player2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 2"
+                    app:layout_constraintBottom_toTopOf="@+id/Player2Card1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player2Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player2Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player2Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 2 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player2"
+                    app:layout_constraintStart_toStartOf="@+id/Player2"
+                    app:layout_constraintTop_toBottomOf="@+id/Player2Card1" />
+
+                <ImageButton
+                    android:id="@+id/Player2Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player2Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player04"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/Player4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 4"
+                    app:layout_constraintBottom_toTopOf="@+id/Player4Card1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player4Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="40dp"
+                    android:contentDescription="TODO"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player4Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player4Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 4 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player4"
+                    app:layout_constraintStart_toStartOf="@+id/Player4"
+                    app:layout_constraintTop_toBottomOf="@+id/Player4Card0" />
+
+                <ImageButton
+                    android:id="@+id/Player4Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:contentDescription="TODO"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player4Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:baselineAligned="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player05"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/Player5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 5"
+                    app:layout_constraintBottom_toTopOf="@+id/Player5Card0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player5Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player5Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player5Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 5 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player5"
+                    app:layout_constraintStart_toStartOf="@+id/Player5"
+                    app:layout_constraintTop_toBottomOf="@+id/Player5Card0" />
+
+                <ImageButton
+                    android:id="@+id/Player5Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player5Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Board"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:baselineAligned="false">
+
+                <ImageButton
+                    android:id="@+id/board0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="4dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/board1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/board1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="4dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/board2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/board2"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/board3"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/board2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/board4"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/board3"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/PlayerNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#D60C0C"
+                    android:onClick="playerClick"
+                    android:tag="2"
+                    android:text="@string/players2"
+                    app:layout_constraintStart_toStartOf="@+id/board2"
+                    app:layout_constraintTop_toBottomOf="@+id/board2" />
+
+                <Button
+                    android:id="@+id/Calculate"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="#22A826"
+                    android:onClick="calculate"
+                    android:text="@string/getodds"
+                    app:layout_constraintEnd_toStartOf="@+id/PlayerNumber"
+                    app:layout_constraintTop_toBottomOf="@+id/board0" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player06"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:baselineAligned="false">
+
+                <TextView
+                    android:id="@+id/Player6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 6"
+                    app:layout_constraintBottom_toTopOf="@+id/Player6Card0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player6Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player6Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player6Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 6 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player6"
+                    app:layout_constraintStart_toStartOf="@+id/Player6"
+                    app:layout_constraintTop_toBottomOf="@+id/Player6Card0" />
+
+                <ImageButton
+                    android:id="@+id/Player6Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="40dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player6Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player07"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+
+                <TextView
+                    android:id="@+id/Player7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 7"
+                    app:layout_constraintBottom_toTopOf="@+id/Player7Card0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player7Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="45dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player7Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player7Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 7 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player7"
+                    app:layout_constraintStart_toStartOf="@+id/Player7"
+                    app:layout_constraintTop_toBottomOf="@+id/Player7Card0" />
+
+                <ImageButton
+                    android:id="@+id/Player7Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="45dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player7Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cardPick"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                tools:visibility="invisible">
+
+                <ImageButton
+                    android:id="@+id/cardRanks14"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card01"
+                    android:tag="14"
+                    android:text="Button"
+                    app:layout_constraintBottom_toTopOf="@id/cardRanks7"
+                    app:layout_constraintEnd_toStartOf="@+id/cardRanks2" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks2"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="22dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card02"
+                    android:tag="2"
+                    android:text="Button"
+                    app:layout_constraintBottom_toTopOf="@id/cardRanks7"
+                    app:layout_constraintEnd_toEndOf="@+id/cardRanks7" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks3"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card03"
+                    android:tag="3"
+                    android:text="Button"
+                    app:layout_constraintBottom_toTopOf="@id/cardRanks7"
+                    app:layout_constraintStart_toStartOf="@id/cardRanks7" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks4"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginBottom="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card04"
+                    android:tag="4"
+                    android:text="Button"
+                    app:layout_constraintBottom_toTopOf="@id/cardRanks7"
+                    app:layout_constraintStart_toEndOf="@id/cardRanks3" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks5"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="5"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cardRanks6"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks6"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="6"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/cardRanks7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks7"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="7"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks8"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="8"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cardRanks7"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks9"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="9"
+                    android:text="Button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/cardRanks8"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks10"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="10"
+                    android:text="Button"
+                    app:layout_constraintEnd_toStartOf="@+id/cardRanks11"
+                    app:layout_constraintTop_toBottomOf="@id/cardRanks7"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks11"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="11"
+                    android:text="Button"
+                    app:layout_constraintEnd_toStartOf="@+id/cardRanks12"
+                    app:layout_constraintTop_toBottomOf="@id/cardRanks7"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks12"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginTop="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="12"
+                    android:text="Button"
+                    app:layout_constraintStart_toStartOf="@+id/cardRanks7"
+                    app:layout_constraintTop_toBottomOf="@id/cardRanks7"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanks13"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="13"
+                    android:text="Button"
+                    app:layout_constraintStart_toEndOf="@+id/cardRanks12"
+                    app:layout_constraintTop_toBottomOf="@id/cardRanks7"
+                    tools:visibility="invisible" />
+
+                <ImageButton
+                    android:id="@+id/cardRanksReset"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:onClick="cardSelect"
+                    android:src="@drawable/card00"
+                    android:tag="reset"
+                    app:layout_constraintStart_toEndOf="@+id/cardRanks13"
+                    app:layout_constraintTop_toBottomOf="@id/cardRanks7"
+                    tools:visibility="invisible" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Player08"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+
+                <TextView
+                    android:id="@+id/Player8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Player 8"
+                    app:layout_constraintBottom_toTopOf="@+id/Player8Card0"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/Player8Card0"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="45dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/Player8Card1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/Player8Odds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Player 8 Odds"
+                    android:textAlignment="center"
+                    app:layout_constraintEnd_toEndOf="@+id/Player8"
+                    app:layout_constraintStart_toStartOf="@+id/Player8"
+                    app:layout_constraintTop_toBottomOf="@+id/Player8Card0" />
+
+                <ImageButton
+                    android:id="@+id/Player8Card1"
+                    android:layout_width="40dp"
+                    android:layout_height="56dp"
+                    android:layout_marginStart="45dp"
+                    android:onClick="cardClick"
+                    android:src="@drawable/card00"
+                    android:tag="0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/Player8Card0"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

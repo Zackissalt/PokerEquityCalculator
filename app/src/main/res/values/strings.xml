@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Free Equity Calculator</string>
+    <string name="players2">2 Players</string>
+    <string name="players3">3 Players</string>
+    <string name="players4">4 Players</string>
+    <string name="players5">5 Players</string>
+    <string name="players6">6 Players</string>
+    <string name="players7">7 Players</string>
+    <string name="players8">8 Players</string>
+    <string name="getodds">Get Odds</string>
+    <string name="player_3">Player 3</string>
+
+
+</resources>
