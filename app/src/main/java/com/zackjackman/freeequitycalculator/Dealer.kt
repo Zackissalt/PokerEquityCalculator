@@ -9,13 +9,17 @@ class Dealer(val playerNum:Int) {
         deck = usedDeck
     }
 
-    fun newDeck(){
-        deck.newDeck()
-    }
-
     fun shuffleDeck(){
         deck.shuffle()
     }
+
+    fun createPlayers(){
+        for (i in 0..this.playerNum-1){
+            players.add(Player(i))
+        }
+    }
+
+    /* Functions used for testing when developing class may make use of later
 
     fun runBoard(){
         clearAll()
@@ -26,17 +30,16 @@ class Dealer(val playerNum:Int) {
         bringFlop()
         bringTurn()
         bringRiver()
-
     }
+
 
     fun clearAll(){
         players.clear()
         board.board.clear()
-    }
-    fun createPlayers(){
-        for (i in 0..this.playerNum-1){
-            players.add(Player(i))
-        }
+
+
+    fun newDeck(){
+        deck.newDeck()
     }
 
     fun pitchCards(){
@@ -60,13 +63,16 @@ class Dealer(val playerNum:Int) {
             player.addCard(board.getTurn())
         }
     }
+
     fun bringRiver(){
         board.street(deck.pitchCard())
         for (player in players){
             player.addCard(board.getRiver())
         }
     }
+    */
 
+    // Functions for custom placement of cards while maitainting deck integrity
     fun placePlayerCard(player:Int, card: Card){
         players[ player ].addDealtHand(card)
         deck.removeCard(card)
@@ -82,6 +88,7 @@ class Dealer(val playerNum:Int) {
         }
     }
 
+    /*
     fun removePlayerCard(player: Int, card: Card){
         players[ player ].removeDealtHand(card)
         deck.addCard(card)
@@ -97,31 +104,37 @@ class Dealer(val playerNum:Int) {
 
     }
 
-    fun getPlayerCard(player: Int, postion: Int):Card{
-        return players[player].dealtHand[postion]
+    fun getPlayerCard(player: Int, position: Int):Card{
+        return players[player].dealtHand[position]
 
     }
+    */
 
-    fun placeBoardCard(postion:Int, card: Card, stats:Boolean) {
-        if(board.getBoardSize()-1 > postion || board.getBoardSize() == 5){
-            if(board.board[postion] == card){
+    fun placeBoardCard(position:Int, card: Card, stats:Boolean) {
+        if(board.getBoardSize()-1 > position || board.getBoardSize() == 5){
+            if(board.board[position] == card){
             }else {
-                val holder = board.replaceCard(postion, card)
+                val holder = board.replaceCard(position, card)
                 if (!stats){
                 deck.addCard(holder)
                 }
             }
         }else {
-            board.placeCard(postion, card)
+            board.placeCard(position, card)
             if (!stats){
             deck.removeCard(card)
             }
         }
     }
-    fun placeBoardCard(postion: Int,cards: ArrayList<Card>,stats: Boolean){
-        for (card in postion..cards.size-1){
+
+    fun placeBoardCard(position: Int, cards: ArrayList<Card>, stats: Boolean){
+        for (card in position until cards.size){
             placeBoardCard(card, cards[card], stats)
         }
+    }
+
+    fun removeBoardCard(position: Int){
+        board.removeCard(position)
     }
 
     fun replacePlayerBoard(){
@@ -131,19 +144,9 @@ class Dealer(val playerNum:Int) {
         }
     }
 
-    fun readHands():String{
-        var strings = ""
-        strings += ("-----Board-----\n")
-        for (card in board.getFullBoard()){
-            strings += (card.toString())
-        }
-        for (player in players){
-            strings += ("\n"+ player.toString())
-        }
-        strings += "Winner: " + readWinner()
-        return strings
-    }
 
+
+    // returns all highest value ranking hands
     fun readWinner():ArrayList<Int>{
 
         val highestRank = ArrayList<Int>()

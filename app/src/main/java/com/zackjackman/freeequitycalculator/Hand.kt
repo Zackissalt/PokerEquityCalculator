@@ -9,11 +9,10 @@ class Hand():Comparable<Hand> {
     }
 
     override fun compareTo(other: Hand): Int {
-        if (getRank() != other.getRank()){
-            return getRank() - other.getRank()
+        return if (getRank() != other.getRank()){
+            getRank() - other.getRank()
         } else {
-            return forEachCardCompare(other)
-
+            forEachCardCompare(other)
         }
 
     }
@@ -25,10 +24,8 @@ class Hand():Comparable<Hand> {
             if (handRanked[i].rank != otherRanked [i].rank){
                 return handRanked[i].rank - otherRanked[i].rank
             }
-
         }
         return 0
-
     }
 
     fun addCard(card:Card){
@@ -117,47 +114,39 @@ class Hand():Comparable<Hand> {
         for (card in list){
             if (!values.contains(card.rank)){
                 values.add(card.rank)
+                if (card.rank == 14){
+                    values.add(1)
+                }
             }
         }
         if (values.size < 5){
             return straightValues
         }
         values.sort()
-        if (values.contains(2)&&values.contains(14)){
-            straightValues.add(2)
+        for (a in 0 .. values.size - 5){
+            for (b in a + 1 .. values.size - 4){
+                for (c in b + 1 .. values.size - 3){
+                    for (d in c + 1 .. values.size - 2){
+                        for (e in d + 1 until values.size){
+                            if ((values[a] + 1 == values[b]) &&
+                                    (values[b] + 1 == values[c]) &&
+                                        (values[c] + 1 == values[d]) &&
+                                            (values[d] + 1 == values[e])){
+                                straightValues.clear()
+                                straightValues.add(values[a])
+                                straightValues.add(values[b])
+                                straightValues.add(values[c])
+                                straightValues.add(values[d])
+                                straightValues.add(values[e])
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        if (straightValues.contains(1)){
+            straightValues.remove(1)
             straightValues.add(14)
-            values.remove(2)
-        }
-        var straightBreak = false
-        loop@for (i in 0..values.size-2){
-
-            if(values.get(i) + 1 == values.get(i+1)){
-                straightValues.add(values.get(i))
-                straightBreak = true
-            }else if (straightBreak){
-                straightValues.add(values.get(i))
-                straightBreak = false
-                if (straightValues.size > 4) {
-                    break@loop
-                }
-            } else {
-                straightValues.clear()
-                straightBreak = false
-            }
-        }
-        if (straightValues.size < 5){
-            return straightValues
-        } else if (straightValues.size > 5 ){
-            straightValues.sort()
-            if (straightValues.get(0) == 2 && straightValues.get(straightValues.size - 1) == 14){
-                if(straightValues.size > 6){
-                    straightValues.remove(2)
-                }
-                straightValues.remove(14)
-            }
-            while (straightValues.size > 5){
-                straightValues.removeAt(0)
-            }
         }
         return straightValues
     }

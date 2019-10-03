@@ -4,7 +4,9 @@ class Player(val name: Int):Comparable<Player> {
     override fun compareTo(other: Player): Int {
         return getHand().compareTo(other.getHand())
     }
-
+    /* In Texas Holdem Poker each person has two "hole cards" that they are dealt that only they have access too
+    * while the board gets cards as the round progresses in groups of 3, 1, and 1 all players have access to
+    * these cards but must make the best possible hand of 5 out of the 7 (the 5 board and 2 hole)*/
     var hand = ArrayList<Card> (5)
     var dealtHand = ArrayList<Card>(2)
 
@@ -12,6 +14,7 @@ class Player(val name: Int):Comparable<Player> {
         dealtHand.add(card)
     }
 
+    /*
     fun removeDealtHand(card:Card){
         dealtHand.remove(card)
     }
@@ -19,10 +22,11 @@ class Player(val name: Int):Comparable<Player> {
     fun removeDealtHand(){
         dealtHand.clear()
     }
+    */
 
     fun addCard(cards:ArrayList<Card>){
         for (card in cards){
-            hand.add(card)
+            addCard(card)
         }
     }
 

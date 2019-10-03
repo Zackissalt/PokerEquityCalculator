@@ -1,6 +1,7 @@
 package com.zackjackman.freeequitycalculator
 
  class Card(val rank:Int, val suit:Int) :Comparable<Card> {
+     // an Ace or rank 14 can also assume the spot of rank 1 which is why there is no rank 1
 
      fun rankString():String{
          when(rank){
@@ -21,7 +22,6 @@ package com.zackjackman.freeequitycalculator
 
          }
      }
-
 
      fun equals(other: Card): Boolean {
         if (rank == other.rank && suit == other.suit){

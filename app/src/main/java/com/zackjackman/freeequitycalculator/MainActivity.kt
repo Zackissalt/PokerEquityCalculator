@@ -72,21 +72,23 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun playerClick() {
+    fun playerClick(view:View) {
         suitSelect = true
         cardUnselect()
         playerOptions()
         playerChoice = true
     }
 
-    fun calculate() {
-        if (checkCardFull()){
+    fun calculate(view:View) {
+        val board = getBoard()
+        if (checkCardFull() && board.size !in 1..2){
             val calc = Calculator(players, deck, getHands(), 3 )
             calc.dealerSetUp()
-            val result = calc.calculateOdds(getBoard())
+            val result = calc.calculateOdds(board)
             placeOdds(result)
         }
     }
+
     fun cardUnselect(){
         if(suitSelect && buttonId != 0){
             findViewById<ImageButton>(buttonId).setImageResource(R.drawable.card00)
