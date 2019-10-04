@@ -7,7 +7,6 @@
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -317,6 +316,18 @@
                 android:layout_weight="3"
                 android:baselineAligned="false">
 
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:max="100"
+                    app:layout_constraintBottom_toTopOf="@id/board2"
+                    app:layout_constraintEnd_toEndOf="@id/board2"
+                    app:layout_constraintStart_toStartOf="@id/board2"
+                    tools:visibility="invisible" />
+
                 <ImageButton
                     android:id="@+id/board0"
                     android:layout_width="40dp"
@@ -527,7 +538,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
-                tools:visibility="invisible">
+                tools:visibility="visible">
 
                 <ImageButton
                     android:id="@+id/cardRanks14"

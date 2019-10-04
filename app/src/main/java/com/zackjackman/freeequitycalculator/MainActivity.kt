@@ -1,10 +1,13 @@
 package com.zackjackman.freeequitycalculator
 
+import android.graphics.Color
+import android.graphics.Color.parseColor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 
@@ -17,12 +20,13 @@ class MainActivity : AppCompatActivity() {
     var buttonId = 0
     var suit = 0
     var players = 2
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         makeArray()
-        val layout = findViewById<ConstraintLayout>(R.id.cardPick)
-        layout.visibility = View.INVISIBLE
+        findViewById<ConstraintLayout>(R.id.cardPick).visibility = View.INVISIBLE
+        findViewById<ProgressBar>(R.id.progressBar).visibility = View.INVISIBLE
         playerVisability()
         suitOptions()
         deck.newDeck()
@@ -80,13 +84,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun calculate(view:View) {
+        val bar = findViewById<ProgressBar>(R.id.progressBar)
+        bar.visibility = View.VISIBLE
+        suitSelect = true
+        cardUnselect()
         val board = getBoard()
-        if (checkCardFull() && board.size !in 1..2){
-            val calc = Calculator(players, deck, getHands(), 3 )
-            calc.dealerSetUp()
-            val result = calc.calculateOdds(board)
-            placeOdds(result)
-        }
+        Thread(Runnable{ this@MainActivity.runOnUiThread {
+            if (checkCardFull() && board.size !in 1..2) {
+                val calc = Calculator(players, deck, getHands(), 3)
+                calc.dealerSetUp()
+                val result = calc.calculateOdds(board)
+                placeOdds(result)
+            }
+            bar.visibility = View.INVISIBLE
+            }}).start()
+
+
+
+
     }
 
     fun cardUnselect(){
@@ -332,8 +347,6 @@ class MainActivity : AppCompatActivity() {
         cardGroup.add(R.id.cardRanksReset)
 
     }
-
-
 
 
 }
