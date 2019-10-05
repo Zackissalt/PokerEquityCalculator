@@ -9,8 +9,10 @@ class Hand():Comparable<Hand> {
     }
 
     override fun compareTo(other: Hand): Int {
-        return if (getRank() != other.getRank()){
-            getRank() - other.getRank()
+        val rank = getRank()
+        val otherRank = other.getRank()
+        return if (rank != otherRank){
+            rank - otherRank
         } else {
             forEachCardCompare(other)
         }
@@ -28,19 +30,11 @@ class Hand():Comparable<Hand> {
         return 0
     }
 
-    fun addCard(card:Card){
-        hand.add(card)
-    }
+    fun addCard(cards: ArrayList<Card>) = cards.forEach { addCard(it) }
 
-    fun addCard(cards:ArrayList<Card>){
-        for (card in cards){
-            addCard(card)
-        }
-    }
+    fun addCard(card:Card) = hand.add(card)
 
-    fun removeCard(card: Card){
-        hand.remove(card)
-    }
+    fun removeCard(card: Card) = hand.remove(card)
 
     // Temp arrays for building and identifying
 
@@ -52,10 +46,8 @@ class Hand():Comparable<Hand> {
                 doubles.add(card.rank)
             }
             holder.add(card.rank)
-
         }
         return doubles
-
     }
 
     fun triplesGrab():ArrayList<Int>{
@@ -71,9 +63,7 @@ class Hand():Comparable<Hand> {
         return triple
     }
 
-    fun flushGrab():ArrayList<Card>{
-        return flushGrab(hand, true)
-    }
+    fun flushGrab():ArrayList<Card> = flushGrab(hand, true)
 
     fun flushGrab(list:ArrayList<Card>, trim:Boolean):ArrayList<Card>{
         val flush = ArrayList<Card>()
@@ -82,17 +72,13 @@ class Hand():Comparable<Hand> {
                 break@loop
             }
             for (card:Card in list){
-                if (card.suit.equals(i)){
+                if (card.suit == i){
                     flush.add(card)
                 }
-
             }
-            if (flush.size > 4){
-                continue
-            } else{
+            if (flush.size < 5){
                 flush.clear()
             }
-
         }
         if (trim){
             flush.sort()
@@ -165,37 +151,32 @@ class Hand():Comparable<Hand> {
 
     // Boolean checks on every hand ranking
 
-    fun checkPair():Boolean {
-        return getDoubles().size == 1
+    fun checkPair():Boolean = getDoubles().size == 1
+
+
+    fun checkTwoPair():Boolean = getDoubles().size > 1
+
+
+    fun checkTrips():Boolean = triplesGrab().size == 1
+
+
+    fun checkStraight() :Boolean = straightGrab().size == 5
+
+
+    fun checkFlush() :Boolean = flushGrab().size == 5
+
+
+    fun checkBoat():Boolean {
+        val trips = triplesGrab().size
+        return trips == 2 || (trips == 1 && getDoubles().size > 2)
     }
 
-    fun checkTwoPair():Boolean{
-        return getDoubles().size > 1
-    }
 
-    fun checkTrips():Boolean{
-        return triplesGrab().size == 1
-    }
+    fun checkQuad():Boolean = quadGrab() != 0
 
-    fun checkStraight() :Boolean{
-        return straightGrab().size == 5
-    }
 
-    fun checkFlush() :Boolean {
-        return flushGrab().size == 5
-    }
+    fun checkStrFlush(): Boolean = straightGrab(flushGrab(hand, false)).size == 5
 
-    fun checkBoat():Boolean{
-        return triplesGrab().size == 2 || (triplesGrab().size == 1 && getDoubles().size > 2)
-    }
-
-    fun checkQuad():Boolean{
-        return quadGrab() != 0
-    }
-
-    fun checkStrFlush(): Boolean{
-        return straightGrab(flushGrab(hand, false)).size == 5
-    }
 
 
 
@@ -215,22 +196,22 @@ class Hand():Comparable<Hand> {
     }
 
     fun getRankedHand(): ArrayList<Card>{
-            hand.sort()
-            return when(getRank()){
-                9-> getStrFlush()
-                8-> getQuad()
-                7-> getFullHouse()
-                6-> getFlush()
-                5-> getStraight()
-                4-> getTrips()
-                3-> getTwoPair()
-                2-> getPair()
-                else -> getHighCard()
-            }
 
+        return when(getRank()){
+            9-> getStrFlush()
+            8-> getQuad()
+            7-> getFullHouse()
+            6-> getFlush()
+            5-> getStraight()
+            4-> getTrips()
+            3-> getTwoPair()
+            2-> getPair()
+            else -> getHighCard()
+        }
     }
 
     fun getRank(): Int {
+
         return when {
             checkStrFlush() -> 9
             checkQuad() -> 8
@@ -243,6 +224,7 @@ class Hand():Comparable<Hand> {
             else -> 1
         }
     }
+
     // Area for functions getting the ranked hand
 
     fun getHighCard():ArrayList<Card>{
@@ -252,6 +234,7 @@ class Hand():Comparable<Hand> {
         highCard.removeAt(0)
         return highCard
     }
+
     fun getPair():ArrayList<Card>{
         val pair = ArrayList<Card>()
         for (card in hand){
@@ -273,11 +256,11 @@ class Hand():Comparable<Hand> {
         }
         return pair
     }
+
     fun getTwoPair():ArrayList<Card>{
         val twoPair = ArrayList<Card>()
         hand.sortDescending()
         loop@ for (card in hand){
-
             for (count in getDoubles()){
                 if (twoPair.size == 4){
                     break@loop
@@ -300,14 +283,15 @@ class Hand():Comparable<Hand> {
 
     fun getTrips():ArrayList<Card>{
         val trips = ArrayList<Card>()
+        val triples = triplesGrab()
         for (card in hand){
-            if (card.rank == triplesGrab()[0]){
+            if (card.rank == triples[0]){
                 trips.add(card)
             }
         }
         hand.sortDescending()
         for (card in hand){
-            if (card.rank != triplesGrab()[0]){
+            if (card.rank != triples[0]){
                 trips.add(card)
                 if (trips.size == 5){
                     break
@@ -317,9 +301,8 @@ class Hand():Comparable<Hand> {
         return trips
     }
 
-    fun getStraight():ArrayList<Card>{
-        return getStraight(false, hand)
-    }
+    fun getStraight():ArrayList<Card> = getStraight(false, hand)
+
     fun getStraight(getFlush:Boolean, list:ArrayList<Card>):ArrayList<Card>{
         val straight = ArrayList<Card>()
         for (rank in straightGrab(list)){

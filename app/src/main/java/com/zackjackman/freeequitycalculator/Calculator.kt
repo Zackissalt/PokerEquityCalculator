@@ -23,7 +23,7 @@ class Calculator (val player: Int, deck: Deck, val cards :ArrayList<Card>, val a
         val results = ArrayList<String>()
         for (odd in 0 until  player){
             var odds = ""
-            odds += "Win: " + ((average.getWin(odd) * 1000.0)/average.total).roundToInt()/10.0 + "%\n" +
+            odds += "Win: " + ((average.getWin(odd) * 1000.0)/average.total).roundToInt()/10.0 + "%   " +
                     "Ties: " + (((average.getTie(odd) * 1000.0)/average.total).roundToInt())/10.0 + "%"
             results.add(odds)
         }
@@ -39,7 +39,6 @@ class Calculator (val player: Int, deck: Deck, val cards :ArrayList<Card>, val a
                     }
                     dealer.replacePlayerBoard()
                     recordWinner()
-
             }
         }else{
             runPartial(size)
